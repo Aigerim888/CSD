@@ -1,5 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<CSD.Web.Models.Category>
+
 @{
+    ViewData["Title"] = "Список категорий";
 }
+
+<h1>Список категорий</h1>
+<hr />
+<p>
+    <a asp-action="Create" class="btn btn-success">Создать новую</a>
+</p>
+<ul class="list-group">
+    @foreach (var item in Model)
+    {
+        @if (item.ParentId == 0)
+        {
+            <li class="list-group-item">
+                <a asp-action="Details" asp-route-id="@item.Id">
+                    @item.Name
+                </a>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-danger float-end">
+                    Редактировать
+                </a>
+            </li>
+            @foreach (var itemInside in Model)
+            {
+                @if (item.Id == itemInside.ParentId)
+                {
+                    <li class="list-group-item">
+                        <span>&nbsp;&nbsp;-&nbsp;&nbsp;</span>
+                        <a asp-action="Details" asp-route-id="@itemInside.Id">
+                            @itemInside.Name
+                        </a>
+                        <a asp-action="Edit" asp-route-id="@itemInside.Id" class="btn btn-danger float-end">
+                            Редактировать
+                        </a>
+                    </li>
+                }
+            }
+        }
+    }
+</ul>
