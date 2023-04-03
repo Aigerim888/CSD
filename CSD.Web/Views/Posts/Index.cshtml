@@ -1,6 +1,6 @@
-﻿@model IEnumerable<CSD.Web.Models.Post>
-@{
-    ViewData["Title"] = "Список статей";
+﻿@model List<CSD.Web.Models.Post>
+   @{
+       ViewData["Title"] = "Список статей";
 }
 <h1>Список статей</h1>
 <table class="table">
@@ -10,7 +10,7 @@
         <td>Text</td>
         <td>LastUpdate</td>
      </tr>
- @foreach(var item in Model.Post)
+ @foreach(var item in Model)
      {
       <tr>
         <td>@item.Id</td>

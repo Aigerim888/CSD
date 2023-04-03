@@ -14,7 +14,7 @@ namespace CSD.Web.Controllers
         }
         public IActionResult Index()
         {
-          IEnumerable <Post> postes = _db.Posts.ToList(); 
+          List <Post> postes = _db.Posts.ToList(); 
           return View(postes);
         }
   
