@@ -1,0 +1,10 @@
+﻿@model CSD.Web.Models.Post
+@{
+    ViewData["Title"]= "Статья"+ Model.Title;
+}
+<h1>Model.Title</h1>
+<div>
+    <a asp-action="Index" class"btn-btn-primary">Вернуться к списку</a>
+    <a asp-action="Edit" class"btn-btn-primary">Редактировать</a>
+    <a asp-action="Delete" class"btn-btn-primary">Удалить</a>
+</div>

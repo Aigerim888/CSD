@@ -1,0 +1,22 @@
+﻿@model IEnumerable<CSD.Web.Models.Post>
+@{
+    ViewData["Title"] = "Список статей";
+}
+<h1>Список статей</h1>
+<table class="table">
+    <tr>
+        <td>Id</td>
+        <td>Title</td>
+        <td>Text</td>
+        <td>LastUpdate</td>
+     </tr>
+ @foreach(var item in Model.Post)
+     {
+      <tr>
+        <td>@item.Id</td>
+        <td>@item.Title</td>
+        <td>@item.Text</td>
+        <td>@item.LastUpdate</td>
+      </tr>
+     }
+</table>
